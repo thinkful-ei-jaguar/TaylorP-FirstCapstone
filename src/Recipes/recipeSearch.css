@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+.recipe-search {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.recipe-search-form {
+  border: 1px solid black;
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.recipe-search-form input {
+  width: 100%;
+}
+
+.recipe-select-button-div {
+  width: 100%;
+  padding-top: 10px; 
+}
+
+.recipe-select-button-div label {
+  padding-right: 5px;
+}
+
+.recipe-select-button-div button {
+  float: right;
+}

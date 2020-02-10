@@ -6,4 +6,9 @@
   left: 0;
   display: flex;
   justify-content: center;
+  height: 75px;
+}
+
+.space {
+  height: 75px;
 }
