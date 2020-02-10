@@ -6,6 +6,7 @@ import Recipes from './Recipes/recipes';
 import Cabinet from './Cabinet/cabinet'
 import AddSpirit from './AddSpirit/addSpirit'
 import Favorites from './Favorites/favorites'
+import RecipeExtended from './Recipes/recipeExtended'
 
 
 class App extends Component {
@@ -15,7 +16,7 @@ class App extends Component {
         <Nav />
 
         <Route
-        path='/recipes'
+        exact path='/recipes'
         component={Recipes} />
 
         <Route
@@ -29,6 +30,10 @@ class App extends Component {
         <Route 
         path='/favorites'
         component={Favorites} />
+
+        <Route
+        path='/recipes/:id'
+        component={RecipeExtended} />
 
         <Footer />
       </>

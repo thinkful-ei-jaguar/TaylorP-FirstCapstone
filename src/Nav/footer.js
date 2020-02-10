@@ -4,6 +4,7 @@ import './footer.css'
 
 export default function Footer(props) {
   return (
+    <>
     <footer className='footer'>
       <ul className='footer-list'>
         <li>
@@ -21,5 +22,7 @@ export default function Footer(props) {
         </li>
       </ul>
     </footer>
+    <div className='space'></div>
+    </>
   )
 }
