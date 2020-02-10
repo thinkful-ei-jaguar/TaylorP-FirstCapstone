@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+.spirit-search {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.spirit-search-form {
+  border: 1px solid black;
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.spirit-search-form input {
+  width: 100%;
+}
+
+.spirit-select-button-div {
+  width: 100%;
+  padding-top: 10px; 
+}
+
+.spirit-select-button-div label {
+  padding-right: 5px;
+}
+
+.spirit-select-button-div button {
+  float: right;
+}

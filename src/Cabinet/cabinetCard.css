@@ -1,0 +1,22 @@
+.cabinet-li {
+  border: 1px solid black;
+  background-color: lightgray;
+  width: 170px;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.cabinet-li div {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border: 1px dashed grey;
+}
+
+.cabinet-li h2, .cabinet-li h3 {
+  margin: 0;
+}

@@ -5,7 +5,13 @@
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: space-around;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
 }

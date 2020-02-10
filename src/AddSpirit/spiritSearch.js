@@ -1,21 +1,19 @@
 import React, {Component} from 'react'
-import './recipeSearch.css'
-/** Keyword search function to look through 'tags' object in data structure in order to search more in depthly, tags will be made by me when seeding the DB */
+import './spiritSearch.css'
 
 
-class RecipesSearch extends Component {
+class SpiritSearch extends Component {
   render(){
     return (
-      <section className='recipe-search'>
-        <form className='recipe-search-form'>
+      <section className='spirit-search'>
+        <form className='spirit-search-form'>
           <div className='searchbar'>
-            <label htmlFor='keyword'>Keyword:{' '}</label>
-            <input type='text' name='keyword' id='keyword' placeholder='Ex: Margartia' />
+            <label htmlFor='name'>Name:{' '}</label>
+            <input type='text' name='name' id='name' placeholder='Ex: Espolon' />
           </div>
-          <div className='recipe-select-button-div'>
+          <div className='spirit-select-button-div'>
             <label htmlFor='spirit-search'>Spirit:</label>
             <select name='spirit-search' id='spirit-search'>
-              <option value='cabinet'>My Spirits</option>
               <option value='vodka'>Vodka</option>
               <option value='gin'>Gin</option>
               <option value='tequila'>Tequila</option>
@@ -33,4 +31,4 @@ class RecipesSearch extends Component {
   }
 }
 
-export default RecipesSearch;
+export default SpiritSearch;
