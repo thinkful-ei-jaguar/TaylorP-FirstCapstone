@@ -1,20 +1,22 @@
 import React, { Component } from 'react'
 import RecipeContext from '../Context/recipeContext' 
 import RecipeApiService from '../Services/recipe-api-service'
+import TokenService from '../Services/token-service'
 import './recipeExtended.css'
-
-/** -note for favortie checkbox: use css to make into  a "switch" instead for modernization.
- * -change the ul for ingredients to two lists: the first with sizes, the second next to it in block display with the item.
- */
 
 class RecipeExtended extends Component {
   static contextType = RecipeContext
 
   componentDidMount() {
-    const { id } = this.props.match.params
+    const { id } = this.props.match.params;
+    const user_id = TokenService.getUserId();
     this.context.clearError()
     RecipeApiService.getRecipe(id)
       .then(this.context.setRecipe)
+      .catch(this.context.setError)
+    
+    RecipeApiService.getFavorites(user_id)
+      .then(this.context.setFavoriteList)
       .catch(this.context.setError)
   }
 
@@ -26,7 +28,40 @@ class RecipeExtended extends Component {
   }
 
   goBack = () => {
-    this.props.history.push('/recipes');
+    this.props.history.goBack();
+  }
+
+  handleFavoriteAdd = () => {
+    const recipe_id = this.context.recipe.id;
+    const user_id = TokenService.getUserId();
+    RecipeApiService.postFavorite(user_id, recipe_id)
+    .then(res => {
+      console.log(res)
+      return res
+    })
+      .then(this.context.addFavorite)
+  }
+ 
+  handleFavoriteRemove = () => {
+    const recipe_id = this.context.recipe.id;
+    const user_id = TokenService.getUserId();
+
+    RecipeApiService.removeFavorite(user_id, recipe_id)
+      .then(this.context.removeFavorite(recipe_id))
+  }
+
+  renderFavoriteButton = () => {
+    const recipe_id = this.context.recipe.id;
+    const { favoriteList } = this.context;
+    console.log('fav list ', favoriteList)
+    let button = <button type='button' onClick={this.handleFavoriteAdd}>Add to Favorites</button>;
+    
+    for(let i=0; i<favoriteList.length; i++) {
+      if(favoriteList[i].id === recipe_id) {
+        button = <button type='button' className='remove' onClick={this.handleFavoriteRemove}>Remove from Favorites</button>
+      }
+    }
+    return button;
   }
 
   render(){
@@ -47,10 +82,7 @@ class RecipeExtended extends Component {
            </div>
            <div className='make-div'>
             <p>{recipe.recipe_prep}</p>
-            <label className='checkbox'>
-            Favorite
-            <input type='checkbox' />
-          </label>
+            {this.renderFavoriteButton()}
            </div>
          </div>
         </section>

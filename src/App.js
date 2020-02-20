@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
 import Nav from './Nav/nav-top'
 import Footer from './Nav/footer'
 import Recipes from './Recipes/recipes';
@@ -8,6 +7,9 @@ import AddSpirit from './AddSpirit/addSpirit'
 import Favorites from './Favorites/favorites'
 import RecipeExtended from './Recipes/recipeExtended'
 import Landing from './Login/landing'
+import PrivateRoute from './Utils/PrivateRoute'
+import PublicOnlyRoute from './Utils/PublicOnlyRoute'
+import './App.css'
 
 
 
@@ -17,27 +19,27 @@ class App extends Component {
       <>
         <Nav />
 
-        <Route
+        <PrivateRoute
         exact path='/recipes'
         component={Recipes} />
 
-        <Route
+        <PrivateRoute
         path='/recipes/:id'
         component={RecipeExtended} />
 
-        <Route
+        <PrivateRoute
         path='/cabinet'
         component={Cabinet} />
 
-        <Route
+        <PrivateRoute
         path='/add-spirit'
         component={AddSpirit} />
 
-        <Route 
+        <PrivateRoute 
         path='/favorites'
         component={Favorites} />
 
-        <Route
+        <PublicOnlyRoute
         exact path='/'
         component={Landing} />
 

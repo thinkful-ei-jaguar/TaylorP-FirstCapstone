@@ -6,7 +6,6 @@ const TokenService = {
   },
 
   saveUserId(id) {
-    console.log(id)
     window.localStorage.setItem(config.ID_KEY, id)
   },
 

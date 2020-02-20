@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+.spirit_main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.add-spirit-form {
+  border: 1px solid #025951;
+  background-color: #A6864B;
+  padding: 20px;
+  width: 300px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.add-spirit-form input {
+  width: 100%;
+}
+
+.spirit-select-button-div {
+  width: 100%;
+  padding-top: 10px; 
+}
+
+.spirit-select-button-div label {
+  padding-right: 5px;
+}
+
+.spirit-select-button-div button {
+  float: right;
+}
+
+.go-back {
+  width: 100px;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #067368;
+  color: #DCF2F0;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Josefin Slab', serif;
+}

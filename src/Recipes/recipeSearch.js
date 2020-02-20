@@ -50,6 +50,8 @@ class RecipesSearch extends Component {
               <option value='Rye'>Rye</option>
               <option value='Scotch'>Scotch</option>
               <option value='Amaro'>Amaro</option>
+              <option value='Cognac'>Cognac</option>
+              <option value='Rum'>Rum</option>
             </select>
             <button type='submit'>
               Search

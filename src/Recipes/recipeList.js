@@ -4,8 +4,6 @@ import RecipeListContext from '../Context/recipeListContext'
 //import RecipeApiService from '../Services/recipe-api-service'
 import './recipeList.css'
 
-/** Recipe Cards will need to be mapped through upon searching, fetch call -> context -> recipe list -> .map() method here */
-
 class RecipeList extends Component {
   static contextType = RecipeListContext
 

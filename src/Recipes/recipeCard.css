@@ -1,13 +1,27 @@
-.checkbox {
-  align-self: flex-end;
-}
-
 .recipe-li {
-  border: 1px solid black;
-  background-color: lightgray;
+  border: 1px solid #025951;
+  border-radius: 0 10px;
+  background-color: #067368;
   width: 300px;
   display: flex;
-  justify-content: space-evenly;
-  padding: 5px;
+  justify-content: space-between;
+  padding: 5px 15px;
   margin: 10px auto;
+}
+
+.recipe-li:hover {
+  background-color: #025951;
+}
+
+.recipe-li h2 {
+  font-weight: 600;
+  color: #DCF2F0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.fa, .fas, .far {
+  font-family: FontAwesome !important;
 }

@@ -5,7 +5,9 @@ export default function Nav(props) {
   return (
     <>
     <nav className='nav-bar-top'>
-      <h1>Linus</h1>
+      <div className='header-box'>
+        <h1>Linus</h1>
+      </div>
     </nav>
     <div className='space'></div>
     </>

@@ -11,44 +11,44 @@ export default class Footer extends Component {
 
   renderLogin() {
     return(
-      <li>
-        <Link to={'/'}>
+      <Link to={'/'}>
+        <div>
           Login
-        </Link>
-      </li>
+        </div>
+      </Link>
     )
   }
 
   renderLogout() {
     return(
-      <li>
-        <Link
-        to={'/'}
-        onClick={this.handleLogout}>
+      <Link
+        onClick={this.handleLogout}
+        to={'/'}>
+        <div>
           Logout
-        </Link>
-      </li>
+        </div>
+      </Link>
     )
   }
   render() {
     return (
       <>
       <footer className='footer'>
-        <ul className='footer-list'>
-          <li>
-            <Link to={'/recipes'}>
+        <div className='footer-list'>
+          <Link to={'/recipes'}>
+            <div>
               Recipes
-            </Link>
-          </li>
-          <li>
-            <Link to={'/cabinet'}>
+            </div>
+          </Link>
+          <Link to={'/cabinet'}>
+            <div>
               My Cabinet
-            </Link>
-          </li>
+            </div>
+          </Link>
           {TokenService.hasAuthToken()
           ? this.renderLogout()
           : this.renderLogin()}
-        </ul>
+        </div>
       </footer>
       <div className='space'></div>
       </>
