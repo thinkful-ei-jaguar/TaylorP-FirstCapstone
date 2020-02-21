@@ -10,15 +10,13 @@ class AddSpirit extends Component {
 
   handleSpiritSubmit = e => {
     e.preventDefault()
-    const { spiritList } = this.context
+    //const { spiritList } = this.context
     const { spirit_name, spirit_id } = e.target
     const user_id = TokenService.getUserId()
-    const spirit = { id: spiritList.length, spirit_name:spirit_name.value, spirit_id:Number(spirit_id.value), user_id} 
-    console.log('list', spiritList)
-    console.log('spirit', spirit)
+    const spirit = {spirit_name:spirit_name.value, spirit_id:Number(spirit_id.value), user_id} 
 
     SpiritApiService.postSpirit(spirit, user_id)
-    .then(this.context.setSpiritList([...spiritList, spirit]))
+    //.then(this.context.setSpiritList([...spiritList, spirit]))
     .then(this.props.history.push('/cabinet'))
   }
 
