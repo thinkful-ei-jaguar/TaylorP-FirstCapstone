@@ -70,9 +70,8 @@ class RecipeExtended extends Component {
       <main className='expanded-main'>
         <section className='recipe-expanded'>
          <div className='recipe-name-icon-div'>
-           <div className='img'>img</div>
             <h2>{recipe.recipe_name}</h2>
-           </div>
+         </div>
          <div className='recipe-specs-make-div'>
            <div className='specs-div'>
              <h3>Ingredients:</h3>
@@ -81,6 +80,7 @@ class RecipeExtended extends Component {
              </ul>
            </div>
            <div className='make-div'>
+             <h3>Steps:</h3>
             <p>{recipe.recipe_prep}</p>
             {this.renderFavoriteButton()}
            </div>

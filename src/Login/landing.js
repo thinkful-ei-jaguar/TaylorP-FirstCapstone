@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AuthApiService from '../Services/auth-api-service'
 import TokenService from '../Services/token-service'
+import LoginContext from '../Context/loginContext'
 import './landing.css'
 
 export default class Landing extends Component {
@@ -8,6 +9,8 @@ export default class Landing extends Component {
     onLoginSuccess: () => {},
     onRegistrationSuccess: () => {}
   }
+
+  static contextType = LoginContext
 
   state = { error: null }
 
@@ -40,9 +43,11 @@ export default class Landing extends Component {
     .then(res => {
       user_name.value = ''
       password.value = ''
+      console.log('1')
       TokenService.saveAuthToken(res.authToken)
       TokenService.saveUserId(res.user_id)
       this.props.onLoginSuccess()
+      this.context.handleLoginState(true)
       this.props.history.push('/cabinet')
     })
     .catch(res => {
@@ -67,14 +72,12 @@ export default class Landing extends Component {
         this.props.onRegistrationSuccess()
       })
       .catch(res => {
-        console.log(res)
         this.setState({ error: res.error})
       })
-    this.handleLoginAfterRegister(user_name.value, password.value)
+    //this.handleLoginAfterRegister(user_name.value, password.value)
   }
 
   handleLoginAfterRegister= (user_name, password) => {
-    console.log(user_name, password)
     AuthApiService.postLogin({
       user_name,
       password
