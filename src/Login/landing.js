@@ -43,7 +43,6 @@ export default class Landing extends Component {
     .then(res => {
       user_name.value = ''
       password.value = ''
-      console.log('1')
       TokenService.saveAuthToken(res.authToken)
       TokenService.saveUserId(res.user_id)
       this.props.onLoginSuccess()

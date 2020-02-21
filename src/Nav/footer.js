@@ -35,7 +35,6 @@ export default class Footer extends Component {
     )
   }
   render() {
-    console.log('3', this.context)
     return (
       <>
       <footer className='footer'>

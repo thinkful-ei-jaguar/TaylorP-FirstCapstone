@@ -32,7 +32,7 @@ class Cabinet extends Component {
           <Link to={'/favorites'}>
             Favorites
           </Link>
-          {' '}
+          {' | '}
           <Link to={'/add-spirit'}>
             Add Spirit
           </Link>

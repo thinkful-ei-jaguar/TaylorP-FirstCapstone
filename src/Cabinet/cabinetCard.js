@@ -17,9 +17,10 @@ class CabinetCard extends Component {
   }
 
   renderIcon(spiritType) {
-  let result;
+    let result;
 
-   result = spiritType.slice(0, 1)
+    if(spiritType)
+      result = spiritType.slice(0, 1)
 
    return <h2>{result}</h2>
   }

@@ -10,7 +10,6 @@ const TokenService = {
   },
 
   getAuthToken() {
-    console.log('2')
     return window.localStorage.getItem(config.TOKEN_KEY)
   },
 

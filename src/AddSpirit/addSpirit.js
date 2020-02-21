@@ -1,19 +1,24 @@
 import React, { Component } from 'react'
 import SpiritApiService from '../Services/spirit-api-service'
 import TokenService from '../Services/token-service'
+import SpiritListContext from '../Context/spiritListContext'
 import './addSpirit.css'
 
 
 class AddSpirit extends Component {
+  static contextType = SpiritListContext
 
   handleSpiritSubmit = e => {
     e.preventDefault()
+    const { spiritList } = this.context
     const { spirit_name, spirit_id } = e.target
     const user_id = TokenService.getUserId()
-    const spirit = { spirit_name:spirit_name.value, spirit_id:Number(spirit_id.value), user_id} 
-    
+    const spirit = { id: spiritList.length, spirit_name:spirit_name.value, spirit_id:Number(spirit_id.value), user_id} 
+    console.log('list', spiritList)
+    console.log('spirit', spirit)
 
     SpiritApiService.postSpirit(spirit, user_id)
+    .then(this.context.setSpiritList([...spiritList, spirit]))
     .then(this.props.history.push('/cabinet'))
   }
 
