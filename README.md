@@ -36,3 +36,10 @@ API
 ---
 
 [Link](https://github.com/thinkful-ei-jaguar/TaylorP-firstCapstone-server) to API GitHub
+
+DEMO Account
+------
+
+Username: dunder
+
+password: password2
