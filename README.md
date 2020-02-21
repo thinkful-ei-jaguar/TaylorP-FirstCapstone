@@ -31,6 +31,8 @@ Technology Used
 + Express
 + CSS3
 + Javascript
++ Node
++ PostgreSQL
 
 API
 ---
