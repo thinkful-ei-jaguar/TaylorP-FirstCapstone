@@ -53,7 +53,6 @@ class RecipeExtended extends Component {
   renderFavoriteButton = () => {
     const recipe_id = this.context.recipe.id;
     const { favoriteList } = this.context;
-    console.log('fav list ', favoriteList)
     let button = <button type='button' onClick={this.handleFavoriteAdd}>Add to Favorites</button>;
     
     for(let i=0; i<favoriteList.length; i++) {
