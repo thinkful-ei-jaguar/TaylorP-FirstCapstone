@@ -16,7 +16,6 @@ export class LoginProvider extends Component {
   }
 
   handleLoginState = (isLoggedIn) => {
-    console.log('setting the state', isLoggedIn)
     this.setState({
       loggedIn: isLoggedIn
     })
