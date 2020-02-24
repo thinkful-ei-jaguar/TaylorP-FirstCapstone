@@ -46,4 +46,9 @@
   font-size: 20px;
   font-weight: 600;
   font-family: 'Josefin Slab', serif;
+  cursor: pointer;
+}
+
+.go-back:hover {
+  background-color: #025951;
 }

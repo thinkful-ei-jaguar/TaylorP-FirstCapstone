@@ -48,6 +48,7 @@
 
 .remove:hover {
   color: #F54B19;
+  cursor: pointer;
 }
 
 .specs-div {
