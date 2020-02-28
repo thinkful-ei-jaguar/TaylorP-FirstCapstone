@@ -69,6 +69,7 @@ export default class Landing extends Component {
         password.value = ''
         nickname.value = ''
         this.props.onRegistrationSuccess()
+        this.context.handleRegisteredState(true)
       })
       .catch(res => {
         this.setState({ error: res.error})
@@ -92,11 +93,13 @@ export default class Landing extends Component {
   }
 
   componentDidMount() {
-    document.getElementById('defaultOpen').click();
+    console.log(document.getElementsByClassName('tabLinks')[0])
+    document.getElementsByClassName('tabLinks')[0].click();
   }
 
   render(){
     const { error } = this.state
+    const { registered } = this.context
     return(
       <main className='landing-main'>
         <div className="tab">
@@ -130,6 +133,7 @@ export default class Landing extends Component {
           <form className='register-form' onSubmit={this.handleRegisterSubmit}>
             <div role='alert'>
               {error && <p className='error'>{error}</p>}
+              {registered && <p className='registered-alert'>Account Created!</p>}
             </div>
             <div className='user_name'>
               <label htmlFor='register-form-user_name'>

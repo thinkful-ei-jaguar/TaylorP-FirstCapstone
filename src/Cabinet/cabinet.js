@@ -37,8 +37,10 @@ class Cabinet extends Component {
             Add Spirit
           </Link>
         </section>
+        <section className='cabinet-lists'>
         <CabinetList />
         <CabinetRecipeList spiritTypes={this.context.spiritTypes} />
+        </section>
       </main>
     )
   }

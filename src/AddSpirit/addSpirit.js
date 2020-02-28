@@ -10,21 +10,25 @@ class AddSpirit extends Component {
 
   handleSpiritSubmit = e => {
     e.preventDefault()
-    //const { spiritList } = this.context
+    const { spiritList } = this.context
     const { spirit_name, spirit_id } = e.target
     const user_id = TokenService.getUserId()
     const spirit = {spirit_name:spirit_name.value, spirit_id:Number(spirit_id.value), user_id} 
+    //const pushToCabinet = function() { this.props.history.push('/cabinet') }
 
     SpiritApiService.postSpirit(spirit, user_id)
-    //.then(this.context.setSpiritList([...spiritList, spirit]))
-    .then(this.props.history.push('/cabinet'))
+    .then(this.context.setSpiritList([...spiritList, spirit]))
+    .then(this.context.setSpiritAddTrue())
+    //.then(setTimeout(this.props.history.push('/cabinet'), 5000))
   }
 
   goBack = () => {
+    this.context.setSpiritAddFalse();
     this.props.history.goBack();
   }
 
   render(){
+    const { spiritAdd } = this.context
     return (
       <main className='spirit_main'>
         <form className='add-spirit-form' onSubmit={this.handleSpiritSubmit}>
@@ -50,6 +54,7 @@ class AddSpirit extends Component {
             </button>
           </div>
         </form>
+        {spiritAdd && <p className='spirit-add-alert'>Spirit Added to your Cabinet</p>}
         <button type='button' className='go-back' onClick={this.goBack} >Go Back</button>
       </main>
     )

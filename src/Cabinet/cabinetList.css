@@ -2,3 +2,11 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+@media screen and (min-width: 750px) {
+  .cabinetlist-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}

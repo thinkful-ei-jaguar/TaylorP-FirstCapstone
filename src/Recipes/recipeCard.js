@@ -14,7 +14,7 @@ class RecipeCard extends Component {
     const { recipe } = this.props
     return (
       <Link to={`/recipes/${recipe.id}`}>
-        <li className='recipe-li'>
+        <li key={recipe.id} className='recipe-li'>
           <h2>{recipe.recipe_name}</h2>
           {this.renderIcon(recipe)}
         </li>

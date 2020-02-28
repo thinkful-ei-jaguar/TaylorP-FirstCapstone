@@ -23,6 +23,16 @@
   width: 100%;
 }
 
+.spirit-add-alert {
+  color: #067368;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 3px;
+  border-radius: 5px;
+  border-bottom: 1px solid #067368;
+  border-top: 1px solid #067368;
+}
+
 .spirit-select-button-div {
   width: 100%;
   padding-top: 10px; 

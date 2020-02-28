@@ -19,11 +19,11 @@
 }
 
 .tab button:hover {
-  background-color: #ddd;
+  background-color: #DCF2F0;
 }
 
 .tab button.active {
-  background-color: #ccc;
+  background-color: #DCF2F0;
 }
 
 .tabContent {
@@ -36,8 +36,8 @@
 }
 
 .landing-main {
-  border: 1px solid #ccc;
-  
+  background-color: rgba(255, 255, 255, .4);
+  border-radius: 0 0 50% 50%;
 }
 
 #login-form-user_name, #login-form-password, #register-form-user_name, #register-form-password, #register-form-nickname  {
@@ -62,4 +62,13 @@
 @keyframes fadeEffect {
   from {opacity: 0;}
   to {opacity: 1;}
+}
+
+@media screen and (min-width: 750px) {
+  .tab button {
+    max-width: 375px;
+  }
+  .tab {
+    justify-content: center;
+  }
 }

@@ -9,11 +9,13 @@ class CabinetCard extends Component {
   handleSpiritRemove = () => {
     const { id } = this.props.spirit
     const { user_id } = this.props.spirit
+    const { spirit_id } = this.props.spirit
 
     const spirit = {id}
     
     SpiritApiService.deleteSpirit(spirit, user_id)
     .then(this.context.removeSpirit(id))
+    .then(this.context.removeSpiritType(spirit_id))
   }
 
   renderIcon(spiritType) {
@@ -32,7 +34,9 @@ class CabinetCard extends Component {
         <div className='spirit-icon'>
           {this.renderIcon(spirit.spirit_cat)}
         </div>
-        <h3>{spirit.spirit_name}</h3>
+        <div className='header-box'>
+          <h3>{spirit.spirit_name}</h3>
+        </div>
         <h4>{spirit.spirit_cat}</h4>
         <button type='button' onClick={this.handleSpiritRemove}>Remove Spirit</button>
       </li>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom';
 import Nav from './Nav/nav-top'
 import Footer from './Nav/footer'
 import Recipes from './Recipes/recipes';
@@ -18,7 +19,10 @@ class App extends Component {
     return (
       <>
         <Nav />
-
+        <div className='parallax'>
+        <div className='parallax_layer parallax_layer-back'>
+        </div>
+        <div className='parallax_layer parallax_layer-base'>
         <PrivateRoute
         exact path='/recipes'
         component={Recipes} />
@@ -42,11 +46,12 @@ class App extends Component {
         <PublicOnlyRoute
         exact path='/'
         component={Landing} />
-
+        </div>
+        </div>
         <Footer />
       </>
     )
   }
 }
 
-export default App;
+export default withRouter(App);

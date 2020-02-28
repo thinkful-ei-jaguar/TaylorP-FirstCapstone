@@ -32,12 +32,12 @@ class CabinetRecipeList extends Component {
   
   render(){
     return (
-      <>
-      <h2>Drinks from your favorites you can make now</h2>
-      <ul className='recipe-list' aria-live='polite'>
-        {this.renderRecipes()}
-      </ul>
-      </>
+      <div>
+        <h2>Drinks from your favorites you can make now</h2>
+        <ul className='recipe-list' aria-live='polite'>
+          {this.renderRecipes()}
+        </ul>
+      </div>
     )
   }
 }

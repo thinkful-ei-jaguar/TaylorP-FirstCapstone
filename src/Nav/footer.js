@@ -11,6 +11,7 @@ export default class Footer extends Component {
     TokenService.clearAuthToken()
     TokenService.clearUserId()
     this.context.handleLoginState(false)
+    this.context.handleRegisteredState(false)
   }
 
   renderLogin() {
@@ -54,7 +55,6 @@ export default class Footer extends Component {
           : this.renderLogin()}
         </div>
       </footer>
-      <div className='space'></div>
       </>
     )
   }

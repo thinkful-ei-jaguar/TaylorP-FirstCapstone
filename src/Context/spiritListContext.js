@@ -14,11 +14,23 @@ export class SpiritListProvider extends Component {
   state = {
     spiritList: [],
     spiritTypes: [],
+    spiritAdd: false,
     error: null
   }
 
   setSpiritList = (spiritList) => {
     this.setState({ spiritList })
+  }
+
+  removeElement(arr, elem) {
+    let idx = arr.indexOf(elem)
+    if (idx > -1) {
+      arr.splice(idx, 1);
+    }
+  }
+
+  removeSpiritType = (spiritId) => {
+    this.removeElement(this.state.spiritTypes, spiritId)
   }
 
   setSpiritTypes = (newSpirit) => {
@@ -41,16 +53,29 @@ export class SpiritListProvider extends Component {
     this.setState({ spiritList: newSpirits })
   }
 
+  setSpiritAddTrue = () => {
+    console.log('spiritAdd: ', this.state.spiritAdd)
+    this.setState({ spiritAdd: true })
+  }
+
+  setSpiritAddFalse = () => {
+    this.setState({ spiritAdd: false })
+  }
+
   render() {
     const value = {
       spiritList: this.state.spiritList,
       spiritTypes: this.state.spiritTypes,
+      spiritAdd: this.state.spiritAdd,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
       setSpiritList: this.setSpiritList,
       removeSpirit: this.removeSpirit,
-      setSpiritTypes: this.setSpiritTypes
+      setSpiritTypes: this.setSpiritTypes,
+      removeSpiritType: this.removeSpiritType,
+      setSpiritAddTrue: this.setSpiritAddTrue,
+      setSpiritAddFalse: this.setSpiritAddFalse
     }
     return (
       <SpiritListContext.Provider value={value}>

@@ -9,7 +9,6 @@ export default function Nav(props) {
         <h1>Linus</h1>
       </div>
     </nav>
-    <div className='space'></div>
     </>
   )
 }

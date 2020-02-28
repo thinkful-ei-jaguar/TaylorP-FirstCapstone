@@ -81,6 +81,10 @@ const RecipeApiService = {
       },
       body: JSON.stringify({ user_id, recipe_id: id })
     })
+    .then(res => {
+      console.log(res)
+      return res
+    })
     .then(res => 
       (!res.ok)
       ? res.json().then(e => Promise.reject(e))

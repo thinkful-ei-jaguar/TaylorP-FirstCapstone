@@ -9,15 +9,16 @@ import './index.css';
 import App from './App';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <RecipeListProvider>
-      <RecipeProvider>
-        <SpiritListProvider>
-          <LoginProvider>
-            <App />
-          </LoginProvider>
-        </SpiritListProvider>
-      </RecipeProvider>
-    </RecipeListProvider>
-  </BrowserRouter>, 
+  
+      <BrowserRouter>
+        <RecipeListProvider>
+          <RecipeProvider>
+            <SpiritListProvider>
+              <LoginProvider>
+                <App />
+              </LoginProvider>
+            </SpiritListProvider>
+          </RecipeProvider>
+        </RecipeListProvider>
+      </BrowserRouter>, 
 document.getElementById('root'));
