@@ -17,13 +17,17 @@
   height: 20px;
   width: 100px;
   padding: 2px;
+  background-color: #DCF2F0;
+  border: thin solid #025951;
+  border-radius: 0 10px 0 10px;
 }
 
 .cabinet-li button:hover {
-  color: #F21B07;
+  background-color: #F21B07;
 }
 
-.cabinet-li h3, .cabinet-li h4 {
+.cabinet-li h3,
+.cabinet-li h4 {
   margin: 0;
   color: #DCF2F0;
 }
