@@ -22,6 +22,14 @@ a {
   text-decoration: none;
 }
 
+.recipe-icon {
+  color: #DCF2F0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+}
+
 @media screen and (min-width: 720px) {
   .recipe-li {
     margin: 10px 5px;

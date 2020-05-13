@@ -1,66 +1,65 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 const SpiritListContext = React.createContext({
   spiritList: [],
   error: null,
   setError: () => {},
   clearError: () => {},
-  setSpiritList: () => {}
-})
+  setSpiritList: () => {},
+});
 
-export default SpiritListContext
+export default SpiritListContext;
 
 export class SpiritListProvider extends Component {
   state = {
     spiritList: [],
     spiritTypes: [],
     spiritAdd: false,
-    error: null
-  }
+    error: null,
+  };
 
   setSpiritList = (spiritList) => {
-    this.setState({ spiritList })
-  }
+    this.setState({ spiritList });
+  };
 
   removeElement(arr, elem) {
-    let idx = arr.indexOf(elem)
+    let idx = arr.indexOf(elem);
     if (idx > -1) {
       arr.splice(idx, 1);
     }
   }
 
   removeSpiritType = (spiritId) => {
-    this.removeElement(this.state.spiritTypes, spiritId)
-  }
+    this.removeElement(this.state.spiritTypes, spiritId);
+  };
 
   setSpiritTypes = (newSpirit) => {
     this.setState({
-      spiritTypes: newSpirit
-    })
-  }
+      spiritTypes: newSpirit,
+    });
+  };
 
   setError = (error) => {
-    console.log(error)
-    this.setState({ error })
-  }
+    console.log(error);
+    this.setState({ error });
+  };
 
   clearError = () => {
-    this.setState({ error: null })
-  }
+    this.setState({ error: null });
+  };
 
   removeSpirit = (id) => {
-    const newSpirits = this.state.spiritList.filter(s => s.id !== id)
-    this.setState({ spiritList: newSpirits })
-  }
+    const newSpirits = this.state.spiritList.filter((s) => s.id !== id);
+    this.setState({ spiritList: newSpirits });
+  };
 
   setSpiritAddTrue = () => {
-    console.log('spiritAdd: ', this.state.spiritAdd)
-    this.setState({ spiritAdd: true })
-  }
+    this.setState({ spiritAdd: true });
+  };
 
   setSpiritAddFalse = () => {
-    this.setState({ spiritAdd: false })
-  }
+    this.setState({ spiritAdd: false });
+  };
 
   render() {
     const value = {
@@ -75,12 +74,12 @@ export class SpiritListProvider extends Component {
       setSpiritTypes: this.setSpiritTypes,
       removeSpiritType: this.removeSpiritType,
       setSpiritAddTrue: this.setSpiritAddTrue,
-      setSpiritAddFalse: this.setSpiritAddFalse
-    }
+      setSpiritAddFalse: this.setSpiritAddFalse,
+    };
     return (
       <SpiritListContext.Provider value={value}>
         {this.props.children}
       </SpiritListContext.Provider>
-    )
+    );
   }
 }

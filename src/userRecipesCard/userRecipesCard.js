@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./recipeCard.css";
+import TokenService from "../Services/token-service";
+// import "./recipeCard.css";
 
-class RecipeCard extends Component {
+class UserRecipeCard extends Component {
   renderIcon = (recipe) => {
     let result = "glass-whiskey";
     if (recipe.recipe_img === "cocktailIcon") {
@@ -18,8 +19,9 @@ class RecipeCard extends Component {
 
   render() {
     const { recipe } = this.props;
+    const user_id = TokenService.getUserId();
     return (
-      <Link to={`/recipes/${recipe.id}`}>
+      <Link to={`/my-recipes/${user_id}/${recipe.id}`}>
         <li key={recipe.id} className="recipe-li">
           <h2>{recipe.recipe_name}</h2>
           {this.renderIcon(recipe)}
@@ -29,4 +31,4 @@ class RecipeCard extends Component {
   }
 }
 
-export default RecipeCard;
+export default UserRecipeCard;

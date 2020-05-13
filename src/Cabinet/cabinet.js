@@ -25,6 +25,7 @@ class Cabinet extends Component {
     this.context.setSpiritTypes(spiritTypes);
   }
   render() {
+    const user_id = TokenService.getUserId();
     return (
       <main className="cabinet-main">
         <h2>Welcome to your Cabinet!</h2>
@@ -32,6 +33,8 @@ class Cabinet extends Component {
           <Link to={"/favorites"}>Favorites</Link>
           {" | "}
           <Link to={"/add-spirit"}>Add Spirit</Link>
+          {" | "}
+          <Link to={`/my-recipes/${user_id}`}>My Recipes</Link>
         </section>
         <section className="cabinet-lists">
           <CabinetList />

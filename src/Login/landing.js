@@ -35,9 +35,19 @@ export default class Landing extends Component {
     e.currentTarget.className += "active";
   }
 
+  handleSubmit = (e) => {
+    this.setState(
+      {
+        error: null,
+        loading: true,
+      },
+      this.handleSubmitJwtAuth(e)
+    );
+  };
+
   handleSubmitJwtAuth = (e) => {
     e.preventDefault();
-    this.setState({ error: null, loading: true });
+
     const { user_name, password } = e.target;
 
     AuthApiService.postLogin({
@@ -49,14 +59,14 @@ export default class Landing extends Component {
         password.value = "";
         TokenService.saveAuthToken(res.authToken);
         TokenService.saveUserId(res.user_id);
+        this.context.saveNickname(res.nickname);
         this.props.onLoginSuccess();
         this.context.handleLoginState(true);
         this.props.history.push("/cabinet");
       })
       .catch((res) => {
-        this.setState({ error: res.error });
+        this.setState({ error: res.error, loading: false });
       });
-    this.setState({ loading: false });
   };
 
   handleRegisterSubmit = (e) => {
@@ -98,7 +108,6 @@ export default class Landing extends Component {
   };
 
   componentDidMount() {
-    console.log(document.getElementsByClassName("tabLinks")[0]);
     document.getElementsByClassName("tabLinks")[0].click();
   }
 
@@ -109,11 +118,7 @@ export default class Landing extends Component {
       <main className="landing-main">
         {loading && (
           <div className="loading-screen">
-            <GridLoader
-              size={15}
-              color={"#067368"}
-              loading={this.state.loading}
-            />
+            <GridLoader size={15} color={"#067368"} loading={loading} />
           </div>
         )}
         <div className="tab">
@@ -131,7 +136,7 @@ export default class Landing extends Component {
         </div>
         <div id="Login" className="tabContent">
           <h3>Login</h3>
-          <form className="login-form" onSubmit={this.handleSubmitJwtAuth}>
+          <form className="login-form" onSubmit={this.handleSubmit}>
             <div role="alert">{error && <p className="error">{error}</p>}</div>
             <div className="user_name">
               <label htmlFor="login-form-user_name">User Name:</label>

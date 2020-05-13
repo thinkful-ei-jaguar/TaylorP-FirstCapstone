@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import RecipeContext from "../Context/recipeContext";
 import RecipeApiService from "../Services/recipe-api-service";
 import TokenService from "../Services/token-service";
-import "./recipeExtended.css";
+import "./userRecipeExtended.css";
 
-class RecipeExtended extends Component {
+class UserRecipeExtended extends Component {
   static contextType = RecipeContext;
 
   componentDidMount() {
+    // console.log("params: ", this.props.match.params);
     const { id } = this.props.match.params;
     const user_id = TokenService.getUserId();
     this.context.clearError();
-    RecipeApiService.getRecipe(id)
+    RecipeApiService.getUserRecipeById(user_id, id)
       .then(this.context.setRecipe)
       .catch(this.context.setError);
 
@@ -53,35 +54,6 @@ class RecipeExtended extends Component {
     );
   };
 
-  renderFavoriteButton = () => {
-    const recipe_id = this.context.recipe.id;
-    const { favoriteList } = this.context;
-    let button = (
-      <button
-        type="button"
-        className="add-fav"
-        onClick={this.handleFavoriteAdd}
-      >
-        Add to Favorites
-      </button>
-    );
-
-    for (let i = 0; i < favoriteList.length; i++) {
-      if (favoriteList[i].id === recipe_id) {
-        button = (
-          <button
-            type="button"
-            className="remove"
-            onClick={this.handleFavoriteRemove}
-          >
-            Remove from Favorites
-          </button>
-        );
-      }
-    }
-    return button;
-  };
-
   render() {
     const { recipe } = this.context;
     return (
@@ -98,7 +70,14 @@ class RecipeExtended extends Component {
             <div className="make-div">
               <h3>Steps:</h3>
               <p>{recipe.recipe_prep}</p>
-              {this.renderFavoriteButton()}
+              <div className="edit-delete-buttons">
+                <button type="button" className="edit">
+                  Edit
+                </button>
+                <button type="button" className="delete">
+                  Delete
+                </button>
+              </div>
             </div>
           </div>
         </section>
@@ -110,4 +89,4 @@ class RecipeExtended extends Component {
   }
 }
 
-export default RecipeExtended;
+export default UserRecipeExtended;
