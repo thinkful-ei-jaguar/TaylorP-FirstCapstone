@@ -34,6 +34,15 @@ class UserRecipeExtended extends Component {
     this.props.history.goBack();
   };
 
+  handleDelete = () => {
+    const user_id = TokenService.getUserId();
+    const { id } = this.props.match.params;
+    console.log(user_id, id);
+    RecipeApiService.removeUserRecipe(user_id, id).then(
+      this.props.history.push(`/my-recipes/${user_id}`)
+    );
+  };
+
   handleFavoriteAdd = () => {
     const recipe_id = this.context.recipe.id;
     const user_id = TokenService.getUserId();
@@ -74,7 +83,11 @@ class UserRecipeExtended extends Component {
                 <button type="button" className="edit">
                   Edit
                 </button>
-                <button type="button" className="delete">
+                <button
+                  type="button"
+                  className="delete"
+                  onClick={this.handleDelete}
+                >
                   Delete
                 </button>
               </div>

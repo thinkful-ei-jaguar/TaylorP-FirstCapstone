@@ -55,6 +55,24 @@ const RecipeApiService = {
     );
   },
 
+  removeUserRecipe(user_id, id) {
+    return fetch(`${config.API_ENDPOINT}/user-recipes/${user_id}/${id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({ user_id, id: id }),
+    })
+      .then((res) => {
+        // console.log(res);
+        return res;
+      })
+      .then((res) =>
+        !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+      );
+  },
+
   getRecipeBySearch(keyword, filter) {
     return fetch(
       `${config.API_ENDPOINT}/recipes?keyword=${keyword}&filter=${filter}`,
