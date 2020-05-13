@@ -33,9 +33,13 @@ class myRecipes extends Component {
   render() {
     return (
       <main className="recipe_main" aria-live="polite">
-        <h2>Your Recipes</h2>
-        <Link to={"/add-recipe"}>Add New Recipe</Link>
-        <ul className="recipe-list">{this.renderRecipes()}</ul>
+        <section className="user-recipe">
+          <h2>Your Recipes:</h2>
+          <div className="add-recipe-button">
+            <Link to={"/add-recipe"}>Add New Recipe</Link>
+          </div>
+          <ul className="recipe-list">{this.renderRecipes()}</ul>
+        </section>
       </main>
     );
   }

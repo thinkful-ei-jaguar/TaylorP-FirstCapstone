@@ -139,7 +139,7 @@ class AddRecipe extends Component {
               default=""
               onKeyDown={this.handleIngList}
             />
-            {ingredients && <ol>{this.renderIngList()}</ol>}
+            {ingredients && <ol className="ingList">{this.renderIngList()}</ol>}
           </div>
           <div className="add-recipe-prep">
             <label htmlFor="prep">Preperation: </label>

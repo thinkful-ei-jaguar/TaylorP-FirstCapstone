@@ -80,9 +80,9 @@ class UserRecipeExtended extends Component {
               <h3>Steps:</h3>
               <p>{recipe.recipe_prep}</p>
               <div className="edit-delete-buttons">
-                <button type="button" className="edit">
+                {/* <button type="button" className="edit">
                   Edit
-                </button>
+                </button> */}
                 <button
                   type="button"
                   className="delete"
