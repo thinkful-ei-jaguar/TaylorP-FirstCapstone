@@ -13,6 +13,7 @@ const RecipeListContext = React.createContext({
   clearRecipeList: () => {},
   setRecipeAdd: () => {},
   clearRecipeAdd: () => {},
+  removeUserRecipe: () => {},
 });
 
 export default RecipeListContext;
@@ -50,6 +51,13 @@ export class RecipeListProvider extends Component {
     this.setState({ userRecipeList: [] });
   };
 
+  removeUserRecipe = (recipe_id) => {
+    const newUserRecipes = this.state.userRecipeList.filter(
+      (recipe) => recipe.id !== recipe_id
+    );
+    this.setState({ userRecipeList: newUserRecipes });
+  };
+
   setRecipeAdd = () => {
     this.setState({ recipeAdd: true });
   };
@@ -72,6 +80,7 @@ export class RecipeListProvider extends Component {
       clearRecipeList: this.clearRecipeList,
       setRecipeAdd: this.setRecipeAdd,
       clearRecipeAdd: this.clearRecipeAdd,
+      removeUserRecipe: this.removeUserRecipe,
     };
     return (
       <RecipeListContext.Provider value={value}>

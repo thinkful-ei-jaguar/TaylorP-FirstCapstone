@@ -38,9 +38,9 @@ class UserRecipeExtended extends Component {
     const user_id = TokenService.getUserId();
     const { id } = this.props.match.params;
     console.log(user_id, id);
-    RecipeApiService.removeUserRecipe(user_id, id).then(
-      this.props.history.push(`/my-recipes/${user_id}`)
-    );
+    RecipeApiService.removeUserRecipe(user_id, id)
+      .then(this.props.history.push(`/my-recipes/${user_id}`))
+      .then(this.context.removeUserRecipe(id));
   };
 
   handleFavoriteAdd = () => {
