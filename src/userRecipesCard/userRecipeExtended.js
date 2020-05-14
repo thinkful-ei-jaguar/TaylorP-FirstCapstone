@@ -8,7 +8,6 @@ class UserRecipeExtended extends Component {
   static contextType = RecipeContext;
 
   componentDidMount() {
-    // console.log("params: ", this.props.match.params);
     const { id } = this.props.match.params;
     const user_id = TokenService.getUserId();
     this.context.clearError();
@@ -39,32 +38,13 @@ class UserRecipeExtended extends Component {
     const { id } = this.props.match.params;
 
     RecipeApiService.removeUserRecipe(user_id, id)
-      .then(this.context.removeUserRecipe(id))
+      // .then(this.props.handleDelete(id))
       .then(this.props.history.push(`/my-recipes/${user_id}`));
-  };
-
-  handleFavoriteAdd = () => {
-    const recipe_id = this.context.recipe.id;
-    const user_id = TokenService.getUserId();
-    RecipeApiService.postFavorite(user_id, recipe_id)
-      .then((res) => {
-        console.log(res);
-        return res;
-      })
-      .then(this.context.addFavorite);
-  };
-
-  handleFavoriteRemove = () => {
-    const recipe_id = this.context.recipe.id;
-    const user_id = TokenService.getUserId();
-
-    RecipeApiService.removeFavorite(user_id, recipe_id).then(
-      this.context.removeFavorite(recipe_id)
-    );
   };
 
   render() {
     const { recipe } = this.context;
+
     return (
       <main className="expanded-main">
         <section className="recipe-expanded">

@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TokenService from "../Services/token-service";
+import RecipeListContext from "../Context/recipeListContext";
 // import "./recipeCard.css";
 
 class UserRecipeCard extends Component {
+  static contextType = RecipeListContext;
   renderIcon = (recipe) => {
     let result = "glass-whiskey";
     if (recipe.recipe_img === "cocktailIcon") {

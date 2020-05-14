@@ -35,7 +35,7 @@ export default class Footer extends Component {
     if (this.context.nickname) {
       name = `${this.context.nickname}'s`;
     }
-    return <div>{`${name} Cabinet`}</div>;
+    return <div className="name-cabinet">{`${name} Cabinet`}</div>;
   }
 
   render() {
